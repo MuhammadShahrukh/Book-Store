@@ -1,0 +1,30 @@
+	<% include ../partials/head.ejs %>
+
+		<div class="booksPanel">
+			<h2>Books in Stock</h2>
+			<ul>
+
+				<% books.forEach(function(book) { %>
+					<% if(book.name){ %>
+						<li class="booksList">
+
+							<p class="title">
+								<b><%= book.name %> </b><br> 
+							</p>
+							<p class="other">
+								Author : <%= book.author %>, <br>
+								Edition : <%=  book.edition %>, <br>
+								Publisher : <%=  book.publisher %>, <br> 
+								<abbr title="Date of Publish">DOF</abbr> : <%= book.published %>
+							</p>
+							<form class="deleteButtonF" action="/books" method="delete">
+									<input class="deleteButton" type="submit" value="X">
+							</form>
+						</li>					
+					<% } %>
+				<%	}) %>
+				
+			</ul>
+		</div>
+
+	<% include ../partials/foot.ejs %>
